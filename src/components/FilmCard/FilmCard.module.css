@@ -2,13 +2,12 @@
   width: 100%;
 }
 .link {
-  cursor: zoom-in;
   text-decoration: none;
   color: inherit;
 }
 
 .img {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   width: 100%;
   height: 450px;

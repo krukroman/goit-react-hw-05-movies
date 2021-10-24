@@ -1,0 +1,39 @@
+.form {
+  margin-inline: auto;
+  min-width: 290px;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(190, 190, 190, 0.8);
+  border-radius: 5px;
+  transition: border-color 250ms ease-in;
+}
+
+form:focus-within {
+  border-color: orangered;
+}
+
+.input {
+  padding: 8px 16px;
+  width: 100%;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.btn {
+  margin-left: -10px;
+  padding: 11px 16px;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: #fff;
+  background-color: orangered;
+  border: 1px solid orangered;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}

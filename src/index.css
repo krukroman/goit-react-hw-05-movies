@@ -19,3 +19,19 @@ svg {
   max-width: 100%;
   height: auto;
 }
+
+input,
+textarea {
+  display: block;
+  max-width: 100%;
+  resize: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+  background-color: transparent;
+  border: none;
+}

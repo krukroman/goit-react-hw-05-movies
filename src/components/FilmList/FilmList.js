@@ -7,7 +7,7 @@ export default function FilmList({ movies }) {
     <ul className={s.list}>
       {movies.map(({ id, poster_path, title }) => {
         return (
-          <FilmCard key={id} id={id} poster_path={poster_path} title={title} />
+          <FilmCard key={id} poster_path={poster_path} id={id} title={title} />
         );
       })}
     </ul>

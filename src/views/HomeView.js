@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as apiService from '../servises/api-servise';
-import Container from '../components/Container';
 import Loader from '../components/Loader';
 import FilmList from '../components/FilmList';
+import Error from '../components/Error';
 
 const STATUS = {
   IDLE: 'idle',
@@ -34,10 +34,10 @@ export default function HomeView() {
   }, []);
 
   return (
-    <Container>
+    <>
       {status === STATUS.PENDING && <Loader />}
       {status === STATUS.RESOLVED && <FilmList movies={movies} />}
-      {status === STATUS.REJECTED && <div>{error}</div>}
-    </Container>
+      {status === STATUS.REJECTED && <Error message={error} />}
+    </>
   );
 }

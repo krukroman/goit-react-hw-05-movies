@@ -1,6 +1,6 @@
 .list {
   list-style: none;
-  margin: 25px auto;
+  margin: 0 auto;
   padding: 0;
   display: grid;
   max-width: 100%;

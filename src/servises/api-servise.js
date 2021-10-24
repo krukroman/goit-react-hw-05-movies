@@ -1,7 +1,6 @@
 const API_KEY = 'bb47124fe990b3a04ccb5a994cf49456';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
-// ${BASE_URL}trending/movie/day?api_key=${API_KEY}
 //
 
 async function fetchWithErrorHandling(url = '') {
