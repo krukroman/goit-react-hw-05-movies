@@ -9,6 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const HomeView = lazy(() =>
   import('./views/HomeView' /* webpackChunkName: "home-view" */),
 );
+const MoviesView = lazy(() =>
+  import('./views/MoviesView' /* webpackChunkName: "movies-view" */),
+);
+
 export default function App() {
   return (
     <>
@@ -19,7 +23,9 @@ export default function App() {
             <Route path="/" exact>
               <HomeView />
             </Route>
-            <Route path="/movies" exact></Route>
+            <Route path="/movies" exact>
+              <MoviesView />
+            </Route>
             <Redirect to="/" />
           </Switch>
         </Suspense>

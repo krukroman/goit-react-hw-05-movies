@@ -24,6 +24,6 @@ export default function FilmCard({ id, poster_path, title }) {
 
 FilmCard.propTypes = {
   id: PropTypes.number.isRequired,
-  poster_path: PropTypes.string.isRequired,
+  poster_path: PropTypes.string,
   title: PropTypes.string.isRequired,
 };

@@ -12,7 +12,7 @@ export default function Searchform({ onSubmit }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // onSubmit(query.toLocaleLowerCase());
+    onSubmit(query.toLocaleLowerCase());
     setQuery('');
   };
 
