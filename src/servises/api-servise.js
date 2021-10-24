@@ -2,12 +2,14 @@ const API_KEY = 'bb47124fe990b3a04ccb5a994cf49456';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
 // ${BASE_URL}trending/movie/day?api_key=${API_KEY}
+//
 
 async function fetchWithErrorHandling(url = '') {
   const response = await fetch(url);
+  const parsedResponse = await response.json();
   return response.ok
-    ? await response.json()
-    : Promise.reject(new Error('Something goes wrong'));
+    ? parsedResponse
+    : Promise.reject(new Error(`${parsedResponse.status_message}`));
 }
 
 export function fetchTrendingMovies() {
