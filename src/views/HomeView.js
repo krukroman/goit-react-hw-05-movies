@@ -4,29 +4,40 @@ import Container from '../components/Container';
 import Loader from '../components/Loader';
 import FilmList from '../components/FilmList';
 
+const STATUS = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  REJECTED: 'rejected',
+  RESOLVED: 'resolved',
+};
+
 export default function HomeView() {
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState('idle');
   useEffect(() => {
     const getData = () => {
-      setIsLoading(true);
+      setStatus(STATUS.PENDING);
       apiService
         .fetchTrendingMovies()
         .then(({ results }) => {
           setMovies(results);
           setError(null);
+          setStatus(STATUS.RESOLVED);
         })
-        .catch(error => setError(error.message))
-        .finally(() => setIsLoading(false));
+        .catch(error => {
+          setError(error.message);
+          setStatus(STATUS.REJECTED);
+        });
     };
     getData();
   }, []);
 
   return (
     <Container>
-      {movies ? <FilmList movies={movies} /> : <div>{error}</div>}
-      {isLoading && <Loader />}
+      {status === STATUS.PENDING && <Loader />}
+      {status === STATUS.RESOLVED && <FilmList movies={movies} />}
+      {status === STATUS.REJECTED && <div>{error}</div>}
     </Container>
   );
 }
