@@ -9,19 +9,23 @@ export default function HomeView() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    apiService
-      .fetchTrendingMovies()
-      .then(({ results }) => {
-        setIsLoading(true);
-        setMovies(results);
-      })
-      .catch(error => setError(error.message))
-      .finally(() => setIsLoading(false));
+    const getData = () => {
+      setIsLoading(true);
+      apiService
+        .fetchTrendingMovies()
+        .then(({ results }) => {
+          setMovies(results);
+          setError(null);
+        })
+        .catch(error => setError(error.message))
+        .finally(() => setIsLoading(false));
+    };
+    getData();
   }, []);
 
   return (
     <Container>
-      {movies && <FilmList movies={movies} />}
+      {movies ? <FilmList movies={movies} /> : <div>{error}</div>}
       {isLoading && <Loader />}
     </Container>
   );
