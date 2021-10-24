@@ -1,0 +1,17 @@
+@import 'modern-normalize/modern-normalize.css';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 25px;
+  max-width: 1600px;
+}

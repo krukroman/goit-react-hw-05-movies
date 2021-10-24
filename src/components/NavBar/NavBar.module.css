@@ -1,0 +1,29 @@
+.header {
+  padding-block: 15px;
+  background-color: #000;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  transition: color 250ms ease-in;
+}
+
+.link:hover,
+.link:focus {
+  color: orangered;
+}
+
+.link__active {
+  color: orangered;
+}
