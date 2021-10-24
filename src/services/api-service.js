@@ -23,6 +23,10 @@ export function fetchSearchingMovies(query) {
   );
 }
 
+export function fetchMovieById(id) {
+  return fetchWithErrorHandling(`${BASE_URL}movie/${id}?api_key=${API_KEY}`);
+}
+
 export function fetchMovieCast(id) {
   return fetchWithErrorHandling(
     `${BASE_URL}movie/${id}/credits?api_key=${API_KEY}`,

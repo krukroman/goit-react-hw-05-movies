@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import * as apiService from '../services/api-service';
 import Loader from '../components/Loader';
-import FilmList from '../components/FilmList';
 import Error from '../components/Error';
 
 const STATUS = {
@@ -11,17 +11,18 @@ const STATUS = {
   RESOLVED: 'resolved',
 };
 
-export default function HomeView() {
-  const [movies, setMovies] = useState(null);
-  const [error, setError] = useState(null);
+export default function MovieDetailsView() {
+  const { movieId } = useParams();
   const [status, setStatus] = useState('idle');
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     const getData = () => {
       setStatus(STATUS.PENDING);
       apiService
-        .fetchTrendingMovies()
-        .then(({ results }) => {
-          setMovies(results);
+        .fetchMovieById(movieId)
+        .then(data => {
+          console.log(data);
           setError(null);
           setStatus(STATUS.RESOLVED);
         })
@@ -31,12 +32,12 @@ export default function HomeView() {
         });
     };
     getData();
-  }, []);
+  }, [movieId]);
 
   return (
     <>
       {status === STATUS.PENDING && <Loader />}
-      {status === STATUS.RESOLVED && <FilmList movies={movies} />}
+      {status === STATUS.RESOLVED && <div>Movie Details Page</div>}
       {status === STATUS.REJECTED && <Error message={error} />}
     </>
   );

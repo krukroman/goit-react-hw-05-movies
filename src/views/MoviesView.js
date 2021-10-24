@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import * as apiService from '../servises/api-servise';
+import * as apiService from '../services/api-service';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
 import Searchform from '../components/Searchform';
