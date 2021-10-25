@@ -68,7 +68,9 @@ export default function MoviesView() {
     <>
       <Searchform onSubmit={onSearchformSubmit} />
       {status === STATUS.PENDING && <Loader />}
-      {status === STATUS.RESOLVED && <MoviesList movies={movies} />}
+      {status === STATUS.RESOLVED && (
+        <MoviesList movies={movies} location={location} />
+      )}
       {status === STATUS.REJECTED && <Error message={error} />}
     </>
   );

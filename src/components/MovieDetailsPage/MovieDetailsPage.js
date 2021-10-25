@@ -1,14 +1,21 @@
+import { useHistory, useLocation } from 'react-router';
 import noImage from '../../images/256px-No_image_available.svg.png';
 import s from './MovieDetailsPage.module.css';
 
 const POSTER_URL = 'https://image.tmdb.org/t/p/w300';
 
 export default function MovieDetailsPage({ movie, movieId }) {
+  const history = useHistory();
+  const location = useLocation();
   const { title, poster_path, vote_average, overview, genres } = movie;
   const normalizedGenres = genres.map(genre => genre.name).join(', ');
+
+  const onGoBack = () => {
+    history.push(location?.state?.from ?? '/');
+  };
   return (
     <>
-      <button type="button" className={s.btn}>
+      <button className={s.btn} type="button" onClick={onGoBack}>
         Go back
       </button>
       <div className={s.container}>

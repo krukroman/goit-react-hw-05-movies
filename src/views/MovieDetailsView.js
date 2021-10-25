@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import * as apiService from '../services/api-service';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
@@ -13,6 +13,7 @@ const STATUS = {
 };
 
 export default function MovieDetailsView() {
+  const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const [status, setStatus] = useState('idle');

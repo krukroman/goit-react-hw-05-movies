@@ -2,12 +2,18 @@ import PropTypes from 'prop-types';
 import FilmCard from '../MovieCard';
 import s from './MoviesList.module.css';
 
-export default function MoviesList({ movies }) {
+export default function MoviesList({ movies, location }) {
   return (
     <ul className={s.list}>
       {movies.map(({ id, poster_path, title }) => {
         return (
-          <FilmCard key={id} poster_path={poster_path} id={id} title={title} />
+          <FilmCard
+            key={id}
+            poster_path={poster_path}
+            id={id}
+            title={title}
+            location={location}
+          />
         );
       })}
     </ul>

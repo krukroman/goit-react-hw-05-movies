@@ -4,10 +4,18 @@ import noImage from '../../images/256px-No_image_available.svg.png';
 import s from './MovieCard.module.css';
 
 const POSTER_URL = 'https://image.tmdb.org/t/p/w300';
-export default function MovieCard({ id, poster_path, title }) {
+export default function MovieCard({ id, poster_path, title, location }) {
   return (
     <li className={s.item}>
-      <Link to={`/movies/${id}`} className={s.link}>
+      <Link
+        to={{
+          pathname: `/movies/${id}`,
+          state: {
+            from: location,
+          },
+        }}
+        className={s.link}
+      >
         <img
           src={poster_path ? `${POSTER_URL}${poster_path}` : noImage}
           alt={title}

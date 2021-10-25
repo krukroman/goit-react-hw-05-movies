@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import * as apiService from '../services/api-service';
 import Loader from '../components/Loader';
 import MoviesList from '../components/MoviesList';
@@ -12,6 +13,7 @@ const STATUS = {
 };
 
 export default function HomeView() {
+  const location = useLocation();
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState('idle');
@@ -36,7 +38,9 @@ export default function HomeView() {
   return (
     <>
       {status === STATUS.PENDING && <Loader />}
-      {status === STATUS.RESOLVED && <MoviesList movies={movies} />}
+      {status === STATUS.RESOLVED && (
+        <MoviesList movies={movies} location={location} />
+      )}
       {status === STATUS.REJECTED && <Error message={error} />}
     </>
   );
