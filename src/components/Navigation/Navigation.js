@@ -17,7 +17,6 @@ export default function NavBar() {
         <li className={s.item}>
           <NavLink
             to="/movies"
-            exact
             className={s.link}
             activeClassName={s.link__active}
           >
