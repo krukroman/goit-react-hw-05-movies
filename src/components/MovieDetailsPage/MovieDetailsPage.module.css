@@ -37,6 +37,32 @@
   border-radius: 5px;
 }
 
+.link_list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  padding: 8px 16px;
+  color: inherit;
+  border: 1px solid orangered;
+  border-radius: 5px;
+  transition: color 250ms ease-in, background-color 250ms ease-in;
+}
+
+.link:hover,
+.link:focus {
+  color: #fff;
+  background-color: orangered;
+}
+
+.link_active {
+  color: #fff;
+  background-color: orangered;
+}
+
 @media screen and (max-width: 860px) {
   .container {
     grid-template-columns: 1fr;

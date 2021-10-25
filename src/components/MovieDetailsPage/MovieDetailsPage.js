@@ -1,17 +1,19 @@
-import { useHistory, useLocation } from 'react-router';
+import { lazy } from 'react';
+import { NavLink, Route, useHistory, useRouteMatch } from 'react-router-dom';
 import noImage from '../../images/256px-No_image_available.svg.png';
 import s from './MovieDetailsPage.module.css';
 
 const POSTER_URL = 'https://image.tmdb.org/t/p/w300';
 
-export default function MovieDetailsPage({ movie, movieId }) {
-  const history = useHistory();
-  const location = useLocation();
+export default function MovieDetailsPage({ movie, movieId, location }) {
+  // const history = useHistory();
+  const { url } = useRouteMatch();
+
   const { title, poster_path, vote_average, overview, genres } = movie;
   const normalizedGenres = genres.map(genre => genre.name).join(', ');
 
   const onGoBack = () => {
-    history.push(location?.state?.from ?? '/');
+    console.log(location?.state);
   };
   return (
     <>
@@ -37,6 +39,28 @@ export default function MovieDetailsPage({ movie, movieId }) {
           </p>
         </div>
       </div>
+      <ul className={s.link_list}>
+        <li>
+          <NavLink
+            to={`${url}/cast`}
+            exact
+            className={s.link}
+            activeClassName={s.link_active}
+          >
+            Cast
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={`${url}/reviews`}
+            exact
+            className={s.link}
+            activeClassName={s.link_active}
+          >
+            Reviews
+          </NavLink>
+        </li>
+      </ul>
     </>
   );
 }
