@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import FilmCard from '../FilmCard';
-import s from './FilmList.module.css';
+import FilmCard from '../MovieCard';
+import s from './MoviesList.module.css';
 
-export default function FilmList({ movies }) {
+export default function MoviesList({ movies }) {
   return (
     <ul className={s.list}>
       {movies.map(({ id, poster_path, title }) => {
@@ -14,7 +14,7 @@ export default function FilmList({ movies }) {
   );
 }
 
-FilmList.propTypes = {
+MoviesList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,

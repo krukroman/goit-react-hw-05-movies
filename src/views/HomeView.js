@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as apiService from '../services/api-service';
 import Loader from '../components/Loader';
-import FilmList from '../components/FilmList';
+import MoviesList from '../components/MoviesList';
 import Error from '../components/Error';
 
 const STATUS = {
@@ -36,7 +36,7 @@ export default function HomeView() {
   return (
     <>
       {status === STATUS.PENDING && <Loader />}
-      {status === STATUS.RESOLVED && <FilmList movies={movies} />}
+      {status === STATUS.RESOLVED && <MoviesList movies={movies} />}
       {status === STATUS.REJECTED && <Error message={error} />}
     </>
   );

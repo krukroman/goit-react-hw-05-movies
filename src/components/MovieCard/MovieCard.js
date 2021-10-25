@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import noImage from '../../imges/256px-No_image_available.svg.png';
-import s from './FilmCard.module.css';
-export default function FilmCard({ id, poster_path, title }) {
+import s from './MovieCard.module.css';
+
+export default function MovieCard({ id, poster_path, title }) {
   return (
     <li className={s.item}>
       <Link to={`/movies/${id}`} className={s.link}>
@@ -22,7 +23,7 @@ export default function FilmCard({ id, poster_path, title }) {
   );
 }
 
-FilmCard.propTypes = {
+MovieCard.propTypes = {
   id: PropTypes.number.isRequired,
   poster_path: PropTypes.string,
   title: PropTypes.string.isRequired,

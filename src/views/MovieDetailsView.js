@@ -13,6 +13,7 @@ const STATUS = {
 
 export default function MovieDetailsView() {
   const { movieId } = useParams();
+  const [movie, setMovie] = useState({});
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
 
@@ -22,7 +23,7 @@ export default function MovieDetailsView() {
       apiService
         .fetchMovieById(movieId)
         .then(data => {
-          console.log(data);
+          setMovie(data);
           setError(null);
           setStatus(STATUS.RESOLVED);
         })
