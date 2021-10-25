@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import * as apiService from '../services/api-service';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
+import MovieDetailsPage from '../components/MovieDetailsPage';
 
 const STATUS = {
   IDLE: 'idle',
@@ -38,7 +39,9 @@ export default function MovieDetailsView() {
   return (
     <>
       {status === STATUS.PENDING && <Loader />}
-      {status === STATUS.RESOLVED && <div>Movie Details Page</div>}
+      {status === STATUS.RESOLVED && (
+        <MovieDetailsPage movie={movie} movieId={movieId} />
+      )}
       {status === STATUS.REJECTED && <Error message={error} />}
     </>
   );
