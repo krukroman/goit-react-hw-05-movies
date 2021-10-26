@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useRouteMatch } from 'react-router-dom';
 import * as apiService from '../services/api-service';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
@@ -14,6 +14,7 @@ const STATUS = {
 
 export default function MovieDetailsView() {
   const { movieId } = useParams();
+  const { url } = useRouteMatch();
   const location = useLocation();
   const [movie, setMovie] = useState({});
   const [status, setStatus] = useState('idle');
@@ -41,7 +42,12 @@ export default function MovieDetailsView() {
     <>
       {status === STATUS.PENDING && <Loader />}
       {status === STATUS.RESOLVED && (
-        <MovieDetailsPage movie={movie} movieId={movieId} location={location} />
+        <MovieDetailsPage
+          movie={movie}
+          movieId={movieId}
+          url={url}
+          location={location}
+        />
       )}
       {status === STATUS.REJECTED && <Error message={error} />}
     </>

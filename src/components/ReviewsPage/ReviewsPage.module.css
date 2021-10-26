@@ -1,0 +1,12 @@
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.item:not(:first-child) {
+  margin-top: 10px;
+}
+
+.content {
+  margin-top: 10px;
+}
