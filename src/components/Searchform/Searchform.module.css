@@ -18,8 +18,8 @@ form:focus-within {
 .input {
   padding: 8px 16px;
   width: 100%;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+  font-size: 18px;
+  line-height: 1;
   border: none;
 }
 
@@ -30,8 +30,8 @@ input:focus {
 .btn {
   margin-left: -10px;
   padding: 11px 16px;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+  font-size: 18px;
+  line-height: 1;
   color: #fff;
   background-color: orangered;
   border: 1px solid orangered;

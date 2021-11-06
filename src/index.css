@@ -1,4 +1,11 @@
 @import 'modern-normalize/modern-normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #212121;
+}
+
 h1,
 h2,
 h3,
